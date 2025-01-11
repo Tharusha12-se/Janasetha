@@ -1,4 +1,25 @@
- <!--Header Start-->
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <link rel="icon" href="images/favicon.png">
+   <title>ECO HTML</title>
+   <!-- CSS FILES START -->
+   <link href="css/custom.css" rel="stylesheet">
+   <link href="css/color.css" rel="stylesheet">
+   <link href="css/responsive.css" rel="stylesheet">
+   <link href="css/owl.carousel.min.css" rel="stylesheet">
+   <link href="css/bootstrap.min.css" rel="stylesheet">
+   <link href="css/prettyPhoto.css" rel="stylesheet">
+   <link href="css/all.min.css" rel="stylesheet">
+   <!-- CSS FILES End -->
+</head>
+
+<body>
+   <div class="wrapper"></div>
+
+<!--Header Start-->
  <header class="header-style-2">
             <nav class="navbar navbar-expand-lg">
                <a class="navbar-brand" href="index-2.php"><img src="images/h2logo.png" alt=""></a>
@@ -41,6 +62,9 @@
                            <li><a href="my-account.php">My Account</a> </li>
                            <li><a href="coming-soon.php">Coming Soon</a> </li>
                            <li><a href="page-404.php">404 Error</a> </li>
+                           <li><a href="register.php">register</a> </li>
+                           <li><a href="shop.php">shop1</a> </li>
+                           <li><a href="shop-two.php">shop2</a> </li>
                         </ul>
                      </li>
                      <li class="nav-item dropdown">
@@ -49,7 +73,7 @@
                      </li>
                   </ul>
                   <ul class="topnav-right">
-                     <li> <a class="mdonate" href="donation.php"><span>Make a Donation</span></a> </li>
+                     <li> <a class="mdonate" href="register.php"><span>Register Users</span></a> </li>
                      <li> <a class="search-icon" href="#search"> <i class="fas fa-search"></i> </a> </li>
                      <li class="dropdown">
                         <a class="cart-icon" href="#" role="button" id="cartdropdown" data-toggle="dropdown"> <i class="fas fa-shopping-cart"></i></a>

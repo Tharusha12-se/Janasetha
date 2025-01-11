@@ -1,25 +1,7 @@
 <!doctype html>
 <html lang="en">
    
-<head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <link rel="icon" href="images/favicon.png">
-      <title>ECO HTML</title>
-      <!-- CSS FILES START -->
-      <link href="css/custom.css" rel="stylesheet">
-      <link href="css/color.css" rel="stylesheet">
-      <link href="css/responsive.css" rel="stylesheet">
-      <link href="css/owl.carousel.min.css" rel="stylesheet">
-      <link href="css/bootstrap.min.css" rel="stylesheet">
-      <link href="css/prettyPhoto.css" rel="stylesheet">
-      <link href="css/all.min.css" rel="stylesheet">
-      <!-- CSS FILES End -->
-   </head>
-   <body>
-      <div class="wrapper">
+
 
       <?php
       include "header.php";
