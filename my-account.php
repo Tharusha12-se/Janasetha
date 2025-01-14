@@ -25,21 +25,21 @@
                   <div class="col-lg-8">
                      <div class="myaccount-form">
                         <h3>Register Your Account</h3>
-                        <form>
+                        
                            <ul class="row">
                               <li class="col-md-6">
                                  <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                    <input type="text" class="form-control" placeholder="First Name" id="fname" required>
                                  </div>
                               </li>
                               <li class="col-md-6">
                                  <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Contact #" required>
+                                    <input type="text" class="form-control" placeholder="Last Name" id="lname" required>
                                  </div>
                               </li>
                               <li class="col-md-6">
                                  <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Email Address" required>
+                                    <input type="text" class="form-control" placeholder="Nic" required>
                                  </div>
                               </li>
                               <li class="col-md-6">
@@ -67,7 +67,7 @@
                                  <button class="register">Register Your Account</button>
                               </li>
                            </ul>
-                        </form>
+                       
                      </div>
                   </div>
                   <div class="col-lg-4">

@@ -494,6 +494,8 @@
    <script src="js/jquery.prettyPhoto.js"></script>
    <script src="js/isotope.min.js"></script>
    <script src="js/custom.js"></script>
+
+   <script src="script.js"></script>
 </body>
 
 
