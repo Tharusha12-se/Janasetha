@@ -12,7 +12,7 @@
    <link href="css/owl.carousel.min.css" rel="stylesheet">
    <link href="css/bootstrap.min.css" rel="stylesheet">
    <link href="css/prettyPhoto.css" rel="stylesheet">
-   <link href="css/all.min.css" rel="stylesheet">
+   <title>ghgjg</title>
    <!-- CSS FILES End -->
 </head>
 
