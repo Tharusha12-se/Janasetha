@@ -22,6 +22,30 @@
          <section class="wf100 p80">
             <div class="container">
                <div class="row">
+
+               <div class="col-lg-4">
+                     <div class="login-box">
+                        <h3>Login Account</h3>
+                        <form>
+                           <div class="input-group">
+                              <input type="text" class="form-control" placeholder="Username/Email" id="mobile2" required>
+                           </div>
+                           <div class="input-group">
+                              <input type="password" class="form-control" placeholder="Password" id="password2" required>
+                           </div>
+                           <div class="input-group form-check">
+                              <input type="checkbox" class="form-check-input" id="rememberme">
+                              <label class="form-check-label" for="exampleCheck2">Remember Me</label>
+                              <a href="#" class="fp">Forgot Password</a> 
+                           </div>
+                           <div class="input-group">
+                              <button class="login-btn" onclick="signin();">Login Account</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+                  
+
                   <div class="col-lg-8">
                      <div class="myaccount-form">
                         <h3>Register Your Account</h3>
@@ -39,24 +63,21 @@
                               </li>
                               <li class="col-md-6">
                                  <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Nic" required>
+                                    <input type="text" class="form-control" placeholder="Nic" id="nic" required>
                                  </div>
                               </li>
                               <li class="col-md-6">
                                  <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="User Name">
+                                    <input type="text" class="form-control" placeholder="Mobile" id="m" required>
                                  </div>
                               </li>
                               <li class="col-md-6">
                                  <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Password">
+                                    <input type="text" class="form-control" placeholder="Password" id="p" required>
                                  </div>
                               </li>
-                              <li class="col-md-6">
-                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Re-enter Password">
-                                 </div>
-                              </li>
+                              
+                             
                               <li class="col-md-12">
                                  <div class="input-group form-check">
                                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -64,33 +85,13 @@
                                  </div>
                               </li>
                               <li class="col-md-12">
-                                 <button class="register">Register Your Account</button>
+                                 <button class="register" onclick="signup();">Register Your Account</button>
                               </li>
                            </ul>
                        
                      </div>
                   </div>
-                  <div class="col-lg-4">
-                     <div class="login-box">
-                        <h3>Login Account</h3>
-                        <form>
-                           <div class="input-group">
-                              <input type="text" class="form-control" placeholder="Username/Email" required>
-                           </div>
-                           <div class="input-group">
-                              <input type="password" class="form-control" placeholder="Password" required>
-                           </div>
-                           <div class="input-group form-check">
-                              <input type="checkbox" class="form-check-input" id="exampleCheck2">
-                              <label class="form-check-label" for="exampleCheck2">Remember Me</label>
-                              <a href="#" class="fp">Forgot Password</a> 
-                           </div>
-                           <div class="input-group">
-                              <button class="login-btn">Login Account</button>
-                           </div>
-                        </form>
-                     </div>
-                  </div>
+                 
                </div>
             </div>
          </section>
@@ -202,6 +203,10 @@
       <script src="js/jquery.prettyPhoto.js"></script> 
       <script src="js/isotope.min.js"></script> 
       <script src="js/custom.js"></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="script.js"></script>
+
    </body>
 
 

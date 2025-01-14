@@ -1,18 +1,20 @@
+
+
 function signup() {
     var fname = document.getElementById("fname");
     var lname = document.getElementById("lname");
-    var email = document.getElementById("email");
-    var password = document.getElementById("password");
-    var mobile = document.getElementById("mobile");
-    var gender = document.getElementById("gender");
+    var nic = document.getElementById("nic");
+    var mobile = document.getElementById("m");
+    var password = document.getElementById("p");
+   
 
     var form = new FormData();
     form.append("f", fname.value);
     form.append("l", lname.value);
-    form.append("e", email.value);
-    form.append("p", password.value);
+    form.append("n", nic.value);
     form.append("m", mobile.value);
-    form.append("g", gender.value);
+    form.append("p", password.value);
+
 
     var request = new XMLHttpRequest();
 
@@ -21,12 +23,25 @@ function signup() {
             var response = request.responseText;
 
             if (response == "success") {
-                document.getElementById("msg").innerHTML = "Registration Successfull";
-                document.getElementById("msg").className = "alert alert-success";
-                document.getElementById("msgdiv").className = "d-block";
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Your Registration completed successfully.',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                  });
+                  
+                  window.location.reload;
+                  
             } else {
-                document.getElementById("msg").innerHTML = response;
-                document.getElementById("msgdiv").className = "d-block";
+                Swal.fire({
+                    title: 'Error',
+                    text: response,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, delete it!',
+                    cancelButtonText: 'No, cancel!',
+                  });
+                  
             }
 
         }
@@ -38,12 +53,15 @@ function signup() {
 
 function signin() {
 
-    var email = document.getElementById("email2");
+    var mobile = document.getElementById("mobile2");
     var password = document.getElementById("password2");
     var rememberme = document.getElementById("rememberme");
 
+    // alert(mobile.value);
+    // alert(password.value);
+
     var form = new FormData();
-    form.append("e", email.value);
+    form.append("m", mobile.value);
     form.append("p", password.value);
     form.append("r", rememberme.checked);
 
@@ -54,10 +72,21 @@ function signin() {
             var response = request.responseText;
 
             if (response == "success") {
-                window.location = "home.php";
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'SignIn successfully.',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                  });
+                window.location = "index-2.php";
             } else {
-                document.getElementById("msg1").innerHTML = response;
-                document.getElementById("msgdiv1").className = "d-block";
+                Swal.fire({
+                    title: 'Error',
+                    text: response,
+                    icon: 'warning',
+                    showCancelButton: true,
+                   
+                  });
             }
 
         }
