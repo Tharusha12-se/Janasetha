@@ -63,8 +63,7 @@
                            <li><a href="coming-soon.php">Coming Soon</a> </li>
                            <li><a href="page-404.php">404 Error</a> </li>
                            <li><a href="register.php">register</a> </li>
-                           <li><a href="shop.php">shop1</a> </li>
-                           <li><a href="shop-two.php">shop2</a> </li>
+                        
                         </ul>
                      </li>
                      <li class="nav-item dropdown">
