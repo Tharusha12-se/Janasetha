@@ -53,14 +53,21 @@
       <div class="row p-3 mb-2 d-flex justify-content-center">
          <?php
 
-         for ($i = 0; $i < 12; $i++) {
+         require "connection.php";
+
+         $data = Database::search("SELECT * FROM `city`");
+         $num = $data->num_rows;
+
+         for ($i = 0; $i < $num; $i++) {
+            $dataset = $data->fetch_assoc();
          ?>
             <div
                class="col-12 col-lg-3 ml-3 mr-3 mt-3 mb-3 border border-1 border-secondary rounded rounded-5 p-2 text-white d-flex justify-content-center align-items-center"
                style="cursor: pointer; background-color: #66bb6a; height: 100px;"
                onmouseover="this.style.backgroundColor='#43a047'; this.style.color='#000';"
-               onmouseout="this.style.backgroundColor='#66bb6a'; this.style.color='#fff';">
-               <span style="font-size: 24px;" onclick="gotocity('<?php echo $i; ?>');">Colombo</span>
+               onmouseout="this.style.backgroundColor='#66bb6a'; this.style.color='#fff';"
+               onclick="gotocity('<?php echo $dataset['id'] ?>');">
+               <span style="font-size: 24px;"><?php echo $dataset["name"] ?></span>
             </div>
 
          <?php

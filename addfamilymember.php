@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-   <link rel="icon" href="images/logo/logo.png">
+    <link rel="icon" href="images/logo/logo.png">
 </head>
 
 <body>
@@ -17,41 +17,41 @@
                 <div class="col-12">
                     <div class="myaccount-form">
                         <h3>Details Of Family Member</h3>
-                        <form>
+                        <div>
                             <ul class="row">
                                 <li class="col-md-6">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Full Name(නම)" required>
+                                        <input type="text" class="form-control" id="name" placeholder="Full Name (නම)" required>
                                     </div>
                                 </li>
                                 <li class="col-md-6">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Relationship To The House Holder(ගෘහ මූලිකයාට ඇති නෑකම)" required>
+                                        <input type="text" class="form-control" id="relation" placeholder="Relationship To The House Holder (ගෘහ මූලිකයාට ඇති නෑකම)" required>
                                     </div>
                                 </li>
                                 <li class="col-md-6">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="NIC(හැදුනුම්පත් අංකය)" required>
+                                        <input type="text" class="form-control" id="nic" placeholder="NIC (හැදුනුම්පත් අංකය) (Optional)" required>
                                     </div>
                                 </li>
                                 <li class="col-md-6">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Age(වයස)">
+                                        <input type="text" class="form-control" id="age" placeholder="Age (වයස)">
                                     </div>
                                 </li>
                                 <li class="col-md-6">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Occupation(රැකියාව)">
+                                        <input type="text" class="form-control" id="occupation" placeholder="Occupation (රැකියාව)">
                                     </div>
                                 </li>
                                 <li class="col-md-6">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Education(අධ්‍යාපනය)">
+                                        <input type="text" class="form-control" id="education" placeholder="Education (අධ්‍යාපනය)">
                                     </div>
                                 </li>
 
                                 <li class="col-12 text-center d-flex justify-content-center">
-                                    <a class="mdonate w-100"><span>Add Member</span></a>
+                                    <a class="mdonate w-100" onclick="addmember();"><span>Add Member</span></a>
                                 </li>
 
                                 <li class="col-12 mt-3 mb-3">
@@ -87,7 +87,7 @@
                             <br /><br />
 
 
-                        </form>
+                        </div>
                     </div>
                 </div>
 

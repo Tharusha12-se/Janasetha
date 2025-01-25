@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,14 +36,21 @@
                </li>
             </ul>
             <div class="row pr-lg-5 d-flex justify-content-center mb-2">
-               <!-- <div class="login-reg mr-3">
-                  <a href="index.php">Home</a>
-               </div> -->
-               <!-- <a class="nav-link" href="index.php"> Home </a> -->
                <a class="mdonate mr-3" href="register.php"><span>Register Users</span></a>
-               <div class="login-reg">
-                  <a href="my-account.php">Login</a> | <a href="my-account.php">Signup</a>
-               </div>
+               <?php
+
+               if (!isset($_SESSION["user"])) {
+
+               ?>
+
+                  <div class="login-reg">
+                     <a href="signin.php">Login</a> | <a href="my-account.php">Signup</a>
+                  </div>
+
+               <?php
+               }
+
+               ?>
             </div>
             <!-- <ul class="topnav-right">
                <li> <a class="mdonate mr-3" href="register.php"><span>Register Users</span></a></li>
