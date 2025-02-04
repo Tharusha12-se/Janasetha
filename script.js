@@ -157,9 +157,9 @@ function searchUsers() {
 }
 
 // addfamilyMember
-// function addfamilyMember(userId) {
-//   window.location.href = `addfamilymember.php?id=${userId}`;
-// }
+function addfamilyMember(userId) {
+  window.location.href = `addfamilymember.php?id=${userId}`;
+}
 
 // function loadfamilymember(){
 

@@ -7,9 +7,11 @@ $search = $_POST["search"];
 
 if (empty($id)) {
     echo ("City Id Missing.");
+}else if (empty($search)) {
+    echo ("Please Enter User Name to Search..");
 } else {
 
-    $rs = Database::search("SELECT * FROM `user` WHERE `city_id`='" . $id . "' LIKE '" . $search . "%'");
+    $rs = Database::search("SELECT * FROM `user` WHERE `city_id`='" . $id . "' AND `name` LIKE '" . $search . "%'");
     $n = $rs->num_rows;
 
     if ($n > 0) {
