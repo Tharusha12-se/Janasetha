@@ -5,7 +5,7 @@
     <link rel="icon" href="images/logo/logo.png">
 </head>
 
-<body>
+<body onload="loadallmembers();">
 
     <?php
     include "header.php";
@@ -25,8 +25,26 @@
                                     </div>
                                 </li>
                                 <li class="col-md-6">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="relation" placeholder="Relationship To The House Holder (ගෘහ මූලිකයාට ඇති නෑකම)" required>
+                                    <div style="height: 100%;">
+                                        <!-- <input type="text" class="form-control" id="relation"  required> -->
+                                        <select id="relation" class="form-select form-control" style="height: 60%;" required>
+                                            <option value="">Relationship To The House Holder (ගෘහ මූලිකයාට ඇති නෑකම)</option>
+                                            <?php
+
+                                            require "connection.php";
+
+                                            $data = Database::search("SELECT * FROM `relationship`");
+                                            $num = $data->num_rows;
+
+                                            for ($i = 0; $i < $num; $i++) {
+                                                $dataset = $data->fetch_assoc();
+                                            ?>
+                                                <option value="<?= $dataset['id'] ?>"><?= $dataset['type'] ?></option>
+                                            <?php
+                                            }
+
+                                            ?>
+                                        </select>
                                     </div>
                                 </li>
                                 <li class="col-md-6">
@@ -58,11 +76,11 @@
                                     <hr class="border border-2 border-black">
                                 </li>
 
-                                <li class="col-12">
+                                <li class="col-12" id="membertitle">
                                     <span style="font-size: 20px; font-weight: bold;">Added Members</span>
                                 </li>
 
-                                <li class="col-12">
+                                <li class="col-12" id="membertable">
                                     <table border="1" style="width: 100%; text-align: left; border-collapse: collapse;">
                                         <thead>
                                             <tr>
@@ -71,14 +89,8 @@
                                                 <th style="padding: 5px;" class="d-none d-lg-block">NIC</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td style="padding: 5px;">1</td>
-                                                <td style="padding: 5px; max-width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" class="text-break">
-                                                    John
-                                                </td>
-                                                <td style="padding: 5px;" class="d-none d-lg-block">200076333890</td>
-                                            </tr>
+                                        <tbody id="members">
+
                                         </tbody>
                                     </table>
                                 </li>
@@ -111,6 +123,7 @@
     <script src="js/custom.js"></script>
 
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
