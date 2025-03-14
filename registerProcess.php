@@ -25,40 +25,38 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $plantable_size = $_POST["plantable_size"];
     $empty_land = $_POST["empty_land"];
     $cultivation_details = $_POST["cultivation_details"];
-    $latitude = $_POST["latitude"];
-    $longitude = $_POST["longitude"];
+    // $latitude = $_POST["latitude"];
+    // $longitude = $_POST["longitude"];
 
-    // Handle Image Upload
-    $image_name = null;
-    if (isset($_FILES["profile_image"]) && $_FILES["profile_image"]["error"] == UPLOAD_ERR_OK) {
-        $upload_dir = "uploads/";
-        if (!is_dir($upload_dir)) {
-            mkdir($upload_dir, 0777, true);
-        }
-        $image_name = basename($_FILES["profile_image"]["name"]);
-        $target_file = $upload_dir . $image_name;
-        move_uploaded_file($_FILES["profile_image"]["tmp_name"], $target_file);
-    }
+    echo $name . "<br>";
+    echo $age . "<br>";
+    echo $address_line1 . "<br>";
+    echo $address_line2 . "<br>";
+    echo $city . "<br>";
+    echo $mobile . "<br>";
+    echo $stable_phone . "<br>";
+    echo $income . "<br>";
+    echo $village . "<br>";
+    echo $officer_domain . "<br>";
+    echo $secretariat . "<br>";
+    echo $joining_date . "<br>";
+    echo $cbo_name . "<br>";
+    echo $cbo_start_date . "<br>";
+    echo $cbo_members . "<br>";
+    echo $saving . "<br>";
+    echo $saving_amount . "<br>";
+    echo $land_ownership . "<br>";
+    echo $land_size . "<br>";
+    echo $cultivated_size . "<br>";
+    echo $plantable_size . "<br>";
+    echo $empty_land . "<br>";
+    echo $cultivation_details . "<br>";
+    echo $latitude . "<br>";
+    echo $longitude . "<br>";
 
-    // Insert data into database
-    $query = "INSERT INTO users (name, age, address_line1, address_line2, city, mobile, stable_phone, income, village, officer_domain, secretariat, joining_date, cbo_name, cbo_start_date, cbo_members, saving, saving_amount, land_ownership, land_size, cultivated_size, plantable_size, empty_land, cultivation_details, latitude, longitude, profile_image)
-              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    
 
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("sissssssssssssssssssssssss", 
-        $name, $age, $address_line1, $address_line2, $city, $mobile, $stable_phone, $income, $village, $officer_domain, 
-        $secretariat, $joining_date, $cbo_name, $cbo_start_date, $cbo_members, $saving, $saving_amount, 
-        $land_ownership, $land_size, $cultivated_size, $plantable_size, $empty_land, $cultivation_details, $latitude, $longitude, $image_name
-    );
-
-    if ($stmt->execute()) {
-        echo "success";
-    } else {
-        echo "Error: " . $conn->error;
-    }
-
-    $stmt->close();
-    $conn->close();
+    
 } else {
     echo "Invalid request!";
 }

@@ -8,7 +8,7 @@ include "header.php";
 
 
       <!-- Main Content -->
-      <div class="main-content">
+      <div class="main-content" style="font-size: 20px;">
         <section class="section">
           <div class="row ">
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">

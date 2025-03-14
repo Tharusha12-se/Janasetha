@@ -296,79 +296,38 @@ function registerUser() {
         var longitude = position.coords.longitude;
 
         var form = new FormData();
-
+        
         // Collect form data
         form.append("name", document.getElementById("name").value);
         form.append("age", document.getElementById("age").value);
-        form.append(
-          "address_line1",
-          document.getElementById("address_line1").value
-        );
-        form.append(
-          "address_line2",
-          document.getElementById("address_line2").value
-        );
+        form.append("address_line1", document.getElementById("address_line1").value);
+        form.append("address_line2", document.getElementById("address_line2").value);
         form.append("city", document.getElementById("city").value);
         form.append("mobile", document.getElementById("mobile").value);
-        form.append(
-          "stable_phone",
-          document.getElementById("stable_phone").value
-        );
+        form.append("stable_phone", document.getElementById("stable_phone").value);
         form.append("income", document.getElementById("income").value);
         form.append("village", document.getElementById("village").value);
-        form.append(
-          "officer_domain",
-          document.getElementById("officer_domain").value
-        );
-        form.append(
-          "secretariat",
-          document.getElementById("secretariat").value
-        );
-        form.append(
-          "joining_date",
-          document.getElementById("joining_date").value
-        );
+        form.append("officer_domain", document.getElementById("officer_domain").value);
+        form.append("secretariat", document.getElementById("secretariat").value);
+        form.append("joining_date", document.getElementById("joining_date").value);
         form.append("cbo_name", document.getElementById("cbo_name").value);
-        form.append(
-          "cbo_start_date",
-          document.getElementById("cbo_start_date").value
-        );
-        form.append(
-          "cbo_members",
-          document.getElementById("cbo_members").value
-        );
+        form.append("cbo_start_date", document.getElementById("cbo_start_date").value);
+        form.append("cbo_members", document.getElementById("cbo_members").value);
 
         // Saving & Land Ownership Radio Buttons
         var saving = document.querySelector('input[name="saving"]:checked');
         form.append("saving", saving ? saving.value : "");
 
-        form.append(
-          "saving_amount",
-          document.getElementById("saving_amount").value
-        );
+        form.append("saving_amount", document.getElementById("saving_amount").value);
 
-        var land_ownership = document.querySelector(
-          'input[name="land_ownership"]:checked'
-        );
-        form.append(
-          "land_ownership",
-          land_ownership ? land_ownership.value : ""
-        );
+        var land_ownership = document.querySelector('input[name="land_ownership"]:checked');
+        form.append("land_ownership", land_ownership ? land_ownership.value : "");
 
         form.append("land_size", document.getElementById("land_size").value);
-        form.append(
-          "cultivated_size",
-          document.getElementById("cultivated_size").value
-        );
-        form.append(
-          "plantable_size",
-          document.getElementById("plantable_size").value
-        );
+        form.append("cultivated_size", document.getElementById("cultivated_size").value);
+        form.append("plantable_size", document.getElementById("plantable_size").value);
         form.append("empty_land", document.getElementById("empty_land").value);
-        form.append(
-          "cultivation_details",
-          document.getElementById("cultivation_details").value
-        );
+        form.append("cultivation_details", document.getElementById("cultivation_details").value);
 
         // Image Upload
         var imageChooser = document.getElementById("imageChooser");
@@ -405,7 +364,7 @@ function registerUser() {
           }
         };
 
-        request.open("POST", "8.php", true);
+        request.open("POST", "registerProcess.php", true);
         request.send(form);
       },
       function (error) {

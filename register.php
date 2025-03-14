@@ -26,7 +26,7 @@
             <div class="col-lg-12">
                <div class="myaccount-form">
                   <h3>Register Your Account</h3>
-                  <form>
+                  
                      <!-- <h5>User Details</h5> -->
                      <ul class="row">
                         <li class="col-md-12 text-center mb-4">
@@ -49,8 +49,9 @@
                            </div>
                         </li>
                         <li class="col-md-6">
+                           <label style="color: black;">1.Name (නම)</label>
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="1.Name (නම)" required>
+                              <input type="text" class="form-control" placeholder="Name (නම)" required id="name">
                            </div>
                         </li>
                         <!-- <li class="col-md-6">
@@ -64,77 +65,91 @@
                         </div>
                      </li> -->
                         <li class="col-md-6">
+                           <label style="color: black;">2.Age (වයස)</label>
+
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="2.Age (වයස)" required>
+                              <input type="text" class="form-control" placeholder="Age (වයස)" required id="age" >
                            </div>
                         </li>
+
                         <li class="col-12">
                            <label style="color: black;">3.Address (ලිපිනය)</label>
                         </li>
                         <li class="col-md-6">
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="Line 01" required>
+                              <input type="text" class="form-control" placeholder="Line 01" required id="address_line1" >
                            </div>
                         </li>
                         <li class="col-md-6">
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="Line 02" required>
+                              <input type="text" class="form-control" placeholder="Line 02" required id="address_line2" >
                            </div>
                         </li>
                         <li class="col-md-6">
+                           <label style="color: black;">4.City (නගරය)</label>
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="4.City (නගරය)">
+                              <input type="text" class="form-control" placeholder="City (නගරය)" id="city" >
                            </div>
                         </li>
                         <li class="col-md-6">
+                           <label style="color: black;">5.Tel-No Mobile (ජංගම දුරකථන අංකය)</label>
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="5.Tel-No Mobile (ජංගම දුරකථන අංකය)">
+                              <input type="text" class="form-control" placeholder="Tel-No Mobile (ජංගම දුරකථන අංකය)" id="mobile" >
                            </div>
                         </li>
                         <li class="col-md-6">
+                           <label style="color: black;">6.Tel-No Stable (ස්ථාවර දුරකථන අංකය)</label>
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="6.Tel-No Stable (ස්ථාවර දුරකථන අංකය)">
+                              <input type="text" class="form-control" placeholder="Tel-No Stable (ස්ථාවර දුරකථන අංකය)" id="stable_phone" >
                            </div>
                         </li>
                         <li class="col-md-6">
+                           <label style="color: black;">7.Monthly Income (මාසික අදායම)</label>
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="7.Monthly Income (මාසික අදායම)">
+                              <input type="text" class="form-control" placeholder="Monthly Income (මාසික අදායම)" id="income" >
                            </div>
                         </li>
                         <li class="col-md-6">
+                           <label style="color: black;">8.Village (ගම)</label>
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="8.Village (ගම)">
+                              <input type="text" class="form-control" placeholder="Village (ගම)" id="village" >
                            </div>
                         </li>
                         <li class="col-md-6">
+                           <label style="color: black;">9.Village Officer Domain (ග්‍රාම නිලධාරී වසම)</label>
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="9.Village Officer Domain (ග්‍රාම නිලධාරී වසම)">
+                              <input type="text" class="form-control" placeholder="Village Officer Domain (ග්‍රාම නිලධාරී වසම)" id="officer_domain" >
                            </div>
                         </li>
                         <li class="col-md-6">
+                           <label style="color: black;">10.Divisional Secretariat (ප්‍රාදේශීය ලේකම් කාර්යාලය)</label>
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="10.Divisional Secretariat (ප්‍රාදේශීය ලේකම් කාර්යාලය)">
+                              <input type="text" class="form-control" placeholder="Divisional Secretariat (ප්‍රාදේශීය ලේකම් කාර්යාලය)" id="secretariat" >
                            </div>
                         </li>
 
                         <li class="col-md-6">
+                           <label style="color: black;">11.Date Of Joining The Project (ව්‍යාපෘතියට සම්බන්ද වූ දවස)</label>
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="11.Date Of Joining The Project (ව්‍යාපෘතියට සම්බන්ද වූ දවස)" required>
+                              <input type="date" class="form-control" placeholder="Date Of Joining The Project (ව්‍යාපෘතියට සම්බන්ද වූ දවස)" required id="joining_date" >
                            </div>
                         </li>
                         <li class="col-md-6">
+                           <label style="color: black;">12.Name Of C.B.O. (C.B.O. නම)</label>
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="12.Name Of C.B.O. (C.B.O. නම)" required>
+                              <input type="text" class="form-control" placeholder="Name Of C.B.O. (C.B.O. නම)" required id="cbo_name" >
                            </div>
                         </li>
                         <li class="col-md-6">
+                           <label style="color: black;">13.Date Of Started C.B.O. (C.B.O. ආරම්භක දිනය)</label>
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="13.Date Of Started C.B.O. (C.B.O. ආරම්භක දිනය)" required>
+                              <input type="date" class="form-control" placeholder="Date Of Started C.B.O. (C.B.O. ආරම්භක දිනය)" id="cbo_start_date" >
                            </div>
                         </li>
                         <li class="col-md-6">
+                           <label style="color: black;">14.Number Of Members C.B.O. (C.B.O. සාමාජිකයින් සංඛ්‍යාව)</label>
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="14.Number Of Members C.B.O. (C.B.O. සාමාජිකයින් සංඛ්‍යාව)">
+                              <input type="number" class="form-control" placeholder="Number Of Members C.B.O. (C.B.O. සාමාජිකයින් සංඛ්‍යාව)" id="cbo_members" >
                            </div>
                         </li>
                         <li class="col-md-6 mb-4 mb-lg-0">
@@ -157,8 +172,9 @@
                            </div>
                         </li>
                         <li class="col-md-6">
+                        <label style="color: black;">16.Saving Amount (ඉතිරි කරන ලද මුදල)</label>
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="16.Saving Amount (ඉතිරි කරන ලද මුදල)">
+                              <input type="text" class="form-control" placeholder="Saving Amount (ඉතිරි කරන ලද මුදල)" id="saving_amount" >
                            </div>
                         </li>
                         <li class="col-md-6 mb-4 mb-lg-0">
@@ -185,23 +201,27 @@
 
 
                         <li class="col-md-6">
+                        <label style="color: black;">18.Size Of Land (ඉඩමේ ප්‍රමාණය) - <span style="font-weight: bold; color:red;">පර්චස්</span></label>
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="18.Size Of Land (ඉඩමේ ප්‍රමාණය)">
+                              <input type="text" class="form-control" placeholder="Size Of Land (ඉඩමේ ප්‍රමාණය)" id="land_size" >
                            </div>
                         </li>
                         <li class="col-md-6">
+                        <label style="color: black;">19.Amount Cultivated (වගා කර ඇති ප්‍රමාණය) - <span style="font-weight: bold; color:red;">පර්චස්</span></label>
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="19.Amount Cultivated (වගා කර ඇති ප්‍රමාණය)">
+                              <input type="text" class="form-control" placeholder="Amount Cultivated (වගා කර ඇති ප්‍රමාණය)" id="cultivated_size" >
                            </div>
                         </li>
                         <li class="col-md-6">
+                        <label style="color: black;">20.Plantable Size (වගා කල හැකි ප්‍රමාණය) - <span style="font-weight: bold; color:red;">පර්චස්</span></label>
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="20.Plantable Size (වගා කල හැකි ප්‍රමාණය)">
+                              <input type="text" class="form-control" placeholder="Plantable Size (වගා කල හැකි ප්‍රමාණය)" id="plantable_size" >
                            </div>
                         </li>
                         <li class="col-md-6">
+                        <label style="color: black;">21.Empty Land (හිස් ඉඩම) - <span style="font-weight: bold; color:red;">පර්චස්</span></label>
                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="21.Empty Land (හිස් ඉඩම)">
+                              <input type="text" class="form-control" placeholder="Empty Land (හිස් ඉඩම)" id="empty_land" >
                            </div>
                         </li>
 
@@ -210,7 +230,7 @@
                         <li class="col-md-12">
                            <div class="your-comments wf100">
                               <label style="color:black;">22.A Brief of Cultivation (වගා කර ඇති දේ පිළිබද කෙටි විස්තරයක්)</label>
-                              <textarea class="form-control" placeholder="Type Here.."></textarea>
+                              <textarea class="form-control" placeholder="Type Here.." id="cultivation_details" ></textarea>
 
                            </div>
                         </li>
@@ -262,23 +282,23 @@
                               <div class="col-12">
                                  <div class="row mb-3">
                                     <div class="col-12">
-                                       <div class="form-check">
+                                       <div class="form-check ml-3">
                                           <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                                           <label class="form-check-label" for="inlineRadio1">For Rent (කුලියට)</label>
                                        </div>
-                                       <div class="form-check ">
+                                       <div class="form-check ml-3">
                                           <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
                                           <label class="form-check-label" for="inlineRadio2">Ownership Is Unclear (අයිතිය නිරවුල් නැත)</label>
                                        </div>
-                                       <div class="form-check">
+                                       <div class="form-check ml-3">
                                           <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
                                           <label class="form-check-label" for="inlineRadio2">Tax Base (බදු පදනමට)</label>
                                        </div>
-                                       <div class="form-check">
+                                       <div class="form-check ml-3">
                                           <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
                                           <label class="form-check-label" for="inlineRadio2">Land Own By Parents (දෙමාපියන් සතු ඉඩමකි)</label>
                                        </div>
-                                       <div class="form-check">
+                                       <div class="form-check ml-3">
                                           <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
                                           <label class="form-check-label" for="inlineRadio2">Other (වෙනත්)</label>
                                        </div>
@@ -295,18 +315,7 @@
                      <!-- <br /><br /> -->
 
                      <br /><br />
-
-
-
-
-
-
-
-
-
-
-
-                  </form>
+                 
                </div>
             </div>
          </div>
@@ -329,6 +338,7 @@
    <script src="js/custom.js"></script>
 
    <script src="script.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
    <script>
       function previewImage(event) {
