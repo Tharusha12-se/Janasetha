@@ -25,8 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $plantable_size = $_POST["plantable_size"];
     $empty_land = $_POST["empty_land"];
     $cultivation_details = $_POST["cultivation_details"];
-    // $latitude = $_POST["latitude"];
-    // $longitude = $_POST["longitude"];
+    $water_source = $_POST["water_source"];
+    $land_type = $_POST["land_type"];
+     $latitude = $_POST["latitude"];
+     $longitude = $_POST["longitude"];
 
     echo $name . "<br>";
     echo $age . "<br>";
@@ -51,6 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     echo $plantable_size . "<br>";
     echo $empty_land . "<br>";
     echo $cultivation_details . "<br>";
+    echo $water_source . "<br>";
+    echo $land_type . "<br>";
     echo $latitude . "<br>";
     echo $longitude . "<br>";
 

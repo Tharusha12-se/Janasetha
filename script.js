@@ -315,19 +315,48 @@ function registerUser() {
         form.append("cbo_members", document.getElementById("cbo_members").value);
 
         // Saving & Land Ownership Radio Buttons
-        var saving = document.querySelector('input[name="saving"]:checked');
-        form.append("saving", saving ? saving.value : "");
+        var saving1 = document.getElementById("dosaving1");
+        var saving2 = document.getElementById("dosaving2");
+        form.append("saving", saving1.checked ? saving1.value : saving2.checked ? saving2.value : "");
 
         form.append("saving_amount", document.getElementById("saving_amount").value);
 
-        var land_ownership = document.querySelector('input[name="land_ownership"]:checked');
-        form.append("land_ownership", land_ownership ? land_ownership.value : "");
+        var land_ownership1 = document.getElementById("ownership1");
+        var land_ownership2 = document.getElementById("ownership2");
+        form.append("land_ownership", land_ownership1.checked ? land_ownership1.value :
+           land_ownership2.checked ? land_ownership2.value : "");
 
         form.append("land_size", document.getElementById("land_size").value);
         form.append("cultivated_size", document.getElementById("cultivated_size").value);
         form.append("plantable_size", document.getElementById("plantable_size").value);
         form.append("empty_land", document.getElementById("empty_land").value);
         form.append("cultivation_details", document.getElementById("cultivation_details").value);
+
+        var water_source1 = document.getElementById("watersource1");
+        var water_source2 = document.getElementById("watersource2");
+        var water_source3 = document.getElementById("watersource3");
+        var water_source4 = document.getElementById("watersource4");
+        var water_source5 = document.getElementById("watersource5");
+        var water_source6 = document.getElementById("watersource6");
+        form.append("water_source", 
+          water_source1.checked ? water_source1.value :
+          water_source2.checked ? water_source2.value :
+          water_source3.checked ? water_source3.value :
+          water_source4.checked ? water_source4.value :
+          water_source5.checked ? water_source5.value :
+          water_source6.checked ? water_source6.value : "");
+
+          var land_type1 = document.getElementById("type1");
+          var land_type2 = document.getElementById("type2");
+          var land_type3 = document.getElementById("type3");
+          var land_type4 = document.getElementById("type4");
+          var land_type5 = document.getElementById("type5");
+          form.append("land_type", 
+            land_type1.checked ? land_type1.value :
+            land_type2.checked ? land_type2.value :
+            land_type3.checked ? land_type3.value :
+            land_type4.checked ? land_type4.value :
+            land_type5.checked ? land_type5.value : "");  
 
         // Image Upload
         var imageChooser = document.getElementById("imageChooser");
