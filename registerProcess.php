@@ -27,36 +27,151 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $cultivation_details = $_POST["cultivation_details"];
     $water_source = $_POST["water_source"];
     $land_type = $_POST["land_type"];
-     $latitude = $_POST["latitude"];
-     $longitude = $_POST["longitude"];
+    $latitude = $_POST["latitude"];
+    $longitude = $_POST["longitude"];
 
-    echo $name . "<br>";
-    echo $age . "<br>";
-    echo $address_line1 . "<br>";
-    echo $address_line2 . "<br>";
-    echo $city . "<br>";
-    echo $mobile . "<br>";
-    echo $stable_phone . "<br>";
-    echo $income . "<br>";
-    echo $village . "<br>";
-    echo $officer_domain . "<br>";
-    echo $secretariat . "<br>";
-    echo $joining_date . "<br>";
-    echo $cbo_name . "<br>";
-    echo $cbo_start_date . "<br>";
-    echo $cbo_members . "<br>";
-    echo $saving . "<br>";
-    echo $saving_amount . "<br>";
-    echo $land_ownership . "<br>";
-    echo $land_size . "<br>";
-    echo $cultivated_size . "<br>";
-    echo $plantable_size . "<br>";
-    echo $empty_land . "<br>";
-    echo $cultivation_details . "<br>";
-    echo $water_source . "<br>";
-    echo $land_type . "<br>";
-    echo $latitude . "<br>";
-    echo $longitude . "<br>";
+   // Validation rules
+   if (empty($name)) {
+    $errors[] = "Name is required.";
+} elseif (!preg_match("/^[a-zA-Z ]+$/", $name)) {
+    $errors[] = "Name can only contain letters and spaces.";
+}
+
+if (empty($age)) {
+    $errors[] = "Age is required.";
+} elseif (!filter_var($age, FILTER_VALIDATE_INT) || $age < 1 || $age > 120) {
+    $errors[] = "Age must be a valid number between 1 and 120.";
+}
+
+if (empty($address_line1)) {
+    $errors[] = "Address Line 1 is required.";
+}
+
+if (empty($city)) {
+    $errors[] = "City is required.";
+}
+
+if (empty($mobile)) {
+    $errors[] = "Mobile number is required.";
+} elseif (!preg_match("/^\d{10}$/", $mobile)) {
+    $errors[] = "Mobile must be a 10-digit number.";
+}
+
+if (empty($stable_phone)) {
+    $errors[] = "Stable phone number is required.";
+} elseif (!preg_match("/^\d{10}$/", $stable_phone)) {
+    $errors[] = "Stable phone must be a 10-digit number.";
+}
+
+if (empty($income)) {
+    $errors[] = "Income is required.";
+} elseif (!is_numeric($income) || $income <= 0) {
+    $errors[] = "Income must be a positive number.";
+}
+
+if (empty($village)) {
+    $errors[] = "Village is required.";
+}
+
+if (empty($officer_domain)) {
+    $errors[] = "Officer domain is required.";
+}
+
+if (empty($secretariat)) {
+    $errors[] = "Secretariat is required.";
+}
+
+if (empty($joining_date)) {
+    $errors[] = "Joining date is required.";
+} elseif (date_create($joining_date) === false) {
+    $errors[] = "Invalid joining date format (YYYY-MM-DD).";
+}
+
+if (empty($cbo_name)) {
+    $errors[] = "CBO name is required.";
+}
+
+if (empty($cbo_start_date)) {
+    $errors[] = "CBO start date is required.";
+} elseif (date_create($cbo_start_date) === false) {
+    $errors[] = "Invalid CBO start date format (YYYY-MM-DD).";
+}
+
+if (empty($cbo_members)) {
+    $errors[] = "CBO members count is required.";
+} elseif (!filter_var($cbo_members, FILTER_VALIDATE_INT) || $cbo_members < 1) {
+    $errors[] = "CBO members must be a positive integer.";
+}
+
+if (empty($saving)) {
+    $errors[] = "Saving status is required.";
+} elseif ($saving === "yes" && empty($saving_amount)) {
+    $errors[] = "Saving amount is required when saving is enabled.";
+} elseif ($saving === "yes" && (!is_numeric($saving_amount) || $saving_amount <= 0)) {
+    $errors[] = "Saving amount must be a positive number.";
+}
+
+if (empty($land_ownership)) {
+    $errors[] = "Land ownership status is required.";
+}
+
+if (empty($land_size)) {
+    $errors[] = "Land size is required.";
+} elseif (!is_numeric($land_size) || $land_size <= 0) {
+    $errors[] = "Land size must be a positive number.";
+}
+
+if (!empty($land_size)) {
+    if (!empty($cultivated_size) && (!is_numeric($cultivated_size) || $cultivated_size < 0 || $cultivated_size > $land_size)) {
+        $errors[] = "Cultivated size must be a positive number not exceeding land size.";
+    }
+    if (!empty($plantable_size) && (!is_numeric($plantable_size) || $plantable_size < 0 || $plantable_size > $land_size)) {
+        $errors[] = "Plantable size must be a positive number not exceeding land size.";
+    }
+    if (!empty($empty_land) && (!is_numeric($empty_land) || $empty_land < 0 || $empty_land > $land_size)) {
+        $errors[] = "Empty land must be a positive number not exceeding land size.";
+    }
+}
+
+if (empty($cultivation_details)) {
+    $errors[] = "Cultivation details are required.";
+}
+
+if (empty($water_source)) {
+    $errors[] = "Water source is required.";
+}
+
+if (empty($land_type)) {
+    $errors[] = "Land type is required.";
+}
+
+if (empty($latitude)) {
+    $errors[] = "Latitude is required.";
+} elseif (!is_numeric($latitude) || $latitude < -90 || $latitude > 90) {
+    $errors[] = "Latitude must be between -90 and 90.";
+}
+
+if (empty($longitude)) {
+    $errors[] = "Longitude is required.";
+} elseif (!is_numeric($longitude) || $longitude < -180 || $longitude > 180) {
+    $errors[] = "Longitude must be between -180 and 180.";
+}
+
+// If no errors, proceed to database insertion
+if (empty($errors)) {
+    // Use prepared statements to prevent SQL injection
+    $stmt = $conn->prepare("INSERT INTO your_table_name (...) VALUES (...)");
+    // Bind parameters and execute
+    // $stmt->bind_param(...);
+    // $stmt->execute();
+    // Handle success
+    echo "Data saved successfully!";
+} else {
+    // Output errors
+    foreach ($errors as $error) {
+        echo "<p>Error: $error</p>";
+    }
+}
 
     
 
