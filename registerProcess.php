@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $land_type = $_POST["land_type"];
     $latitude = $_POST["latitude"];
     $longitude = $_POST["longitude"];
+    $profile_image = $_FILES["profile_image"];
 
    // Validation rules
    if (empty($name)) {
@@ -160,7 +161,7 @@ if (empty($longitude)) {
 // If no errors, proceed to database insertion
 if (empty($errors)) {
     // Use prepared statements to prevent SQL injection
-    $stmt = $conn->prepare("INSERT INTO your_table_name (...) VALUES (...)");
+    $stmt = $conn->prepare("INSERT INTO `user` (...) VALUES (...)");
     // Bind parameters and execute
     // $stmt->bind_param(...);
     // $stmt->execute();
