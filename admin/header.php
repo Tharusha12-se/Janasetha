@@ -13,7 +13,7 @@
   <link rel='shortcut icon' type='image/x-icon' href='assets\img\logo.png' />
 </head>
 
-<body>
+<body style="font-size: 20px;">
   <div class="loader"></div>
   <div id="app">
     <div class="main-wrapper main-wrapper-1">
