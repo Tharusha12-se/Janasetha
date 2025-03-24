@@ -296,12 +296,11 @@ function registerUser() {
         var longitude = position.coords.longitude;
 
         var form = new FormData();
-        
+
         // Collect form data
         form.append("name", document.getElementById("name").value);
         form.append("age", document.getElementById("age").value);
         form.append("address_line1", document.getElementById("address_line1").value);
-        form.append("address_line2", document.getElementById("address_line2").value);
         form.append("city", document.getElementById("city").value);
         form.append("mobile", document.getElementById("mobile").value);
         form.append("stable_phone", document.getElementById("stable_phone").value);
@@ -319,7 +318,7 @@ function registerUser() {
         var saving2 = document.getElementById("dosaving2");
         form.append("saving", saving1.checked ? saving1.value : saving2.checked ? saving2.value : "");
 
-        form.append("saving_amount", document.getElementById("saving_amount").value);
+         form.append("saving_amount", document.getElementById("saving_amount").value);
 
         var land_ownership1 = document.getElementById("ownership1");
         var land_ownership2 = document.getElementById("ownership2");
@@ -358,6 +357,14 @@ function registerUser() {
             land_type4.checked ? land_type4.value :
             land_type5.checked ? land_type5.value : "");  
 
+        // Function to get the numeric value from selected radio buttons
+
+
+        // Create a FormData object
+      
+
+       // Function to get the numeric value from selected radio buttons
+
         // Image Upload
         var imageChooser = document.getElementById("imageChooser");
         if (imageChooser.files.length > 0) {
@@ -389,6 +396,7 @@ function registerUser() {
                 icon: "error",
                 confirmButtonColor: "#d33",
               });
+              
             }
           }
         };
@@ -414,3 +422,4 @@ function registerUser() {
     });
   }
 }
+

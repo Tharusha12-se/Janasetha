@@ -181,11 +181,11 @@
 
                               <div class="col-12">
                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions1" id="dosaving1" value="option1">
+                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions1" id="dosaving1" value="1">
                                     <label class="form-check-label" for="inlineRadio1">Yes (ඔව්)</label>
                                  </div>
                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions1" id="dosaving2" value="option2">
+                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions1" id="dosaving2" value="2">
                                     <label class="form-check-label" for="inlineRadio2">No (නැත)</label>
                                  </div>
 
@@ -206,11 +206,11 @@
 
                               <div class="col-6">
                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions" id="ownership1" value="option1">
+                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions" id="ownership1" value="1">
                                     <label class="form-check-label" for="inlineRadio1">Yes (ඔව්)</label>
                                  </div>
                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions" id="ownership2" value="option2">
+                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions" id="ownership2" value="2">
                                     <label class="form-check-label" for="inlineRadio2">No (නැත)</label>
                                  </div>
 
@@ -267,27 +267,27 @@
                               </div>
                               <div class="col-12">
                                  <div class="form-check ml-3">
-                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions2" id="watersource1" value="option1">
+                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions2" id="watersource1" value="1">
                                     <label class="form-check-label" for="inlineRadio1">Well (ළිද)</label>
                                  </div>
                                  <div class="form-check ml-3">
-                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions2" id="watersource2" value="option2">
+                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions2" id="watersource2" value="2">
                                     <label class="form-check-label" for="inlineRadio1">Irrigation (වාරි මාර්ග)</label>
                                  </div>
                                  <div class="form-check ml-3">
-                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions2" id="watersource3" value="option3">
+                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions2" id="watersource3" value="3">
                                     <label class="form-check-label" for="inlineRadio1">Water Line (ජල නල පද්ධති මගින්)</label>
                                  </div>
                                  <div class="form-check ml-3">
-                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions2" id="watersource4" value="option4">
+                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions2" id="watersource4" value="4">
                                     <label class="form-check-label" for="inlineRadio1">Rain Water (අහස් දිය)</label>
                                  </div>
                                  <div class="form-check ml-3">
-                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions2" id="watersource5" value="option5">
+                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions2" id="watersource5" value="5">
                                     <label class="form-check-label" for="inlineRadio1">Lake (වැව)</label>
                                  </div>
                                  <div class="form-check ml-3">
-                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions2" id="watersource6" value="option6">
+                                    <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions2" id="watersource6" value="6">
                                     <label class="form-check-label" for="inlineRadio1">Other (වෙනත්)</label>
                                  </div>
                               </div>
@@ -304,23 +304,23 @@
                                  <div class="row mb-3">
                                     <div class="col-12">
                                        <div class="form-check ml-3">
-                                          <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions3" id="type1" value="option1">
+                                          <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions3" id="type1" value="1">
                                           <label class="form-check-label" for="inlineRadio1">For Rent (කුලියට)</label>
                                        </div>
                                        <div class="form-check ml-3">
-                                          <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions3" id="type2" value="option2">
+                                          <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions3" id="type2" value="2">
                                           <label class="form-check-label" for="inlineRadio2">Ownership Is Unclear (අයිතිය නිරවුල් නැත)</label>
                                        </div>
                                        <div class="form-check ml-3">
-                                          <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions3" id="type3" value="option3">
+                                          <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions3" id="type3" value="3">
                                           <label class="form-check-label" for="inlineRadio2">Tax Base (බදු පදනමට)</label>
                                        </div>
                                        <div class="form-check ml-3">
-                                          <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions3" id="type4" value="option4">
+                                          <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions3" id="type4" value="4">
                                           <label class="form-check-label" for="inlineRadio2">Land Own By Parents (දෙමාපියන් සතු ඉඩමකි)</label>
                                        </div>
                                        <div class="form-check ml-3">
-                                          <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions3" id="type5" value="option5">
+                                          <input class="form-check-input" style="width: 15px; height: 15px;" type="radio" name="inlineRadioOptions3" id="type5" value="5">
                                           <label class="form-check-label" for="inlineRadio2">Other (වෙනත්)</label>
                                        </div>
                                     </div>

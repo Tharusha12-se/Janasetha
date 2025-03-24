@@ -5,7 +5,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name = $_POST["name"];
     $age = $_POST["age"];
     $address_line1 = $_POST["address_line1"];
-    $address_line2 = $_POST["address_line2"];
     $city = $_POST["city"];
     $mobile = $_POST["mobile"];
     $stable_phone = $_POST["stable_phone"];
@@ -29,11 +28,43 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $land_type = $_POST["land_type"];
     $latitude = $_POST["latitude"];
     $longitude = $_POST["longitude"];
-    $profile_image = $_FILES["profile_image"];
+
+    $imagePath = null; // Default value if no image is uploaded
+
+    if (isset($_FILES["profile_image"]) && $_FILES["profile_image"]["error"] === 0) {
+        $image = $_FILES["profile_image"];
+        $allowedTypes = ["image/png", "image/jpg", "image/jpeg"];
+        $uploadDir = "profile_img/";
+
+        // Validate file type
+        if (!in_array($image["type"], $allowedTypes)) {
+            $errors[] = "Only PNG, JPG, and JPEG files are allowed.";
+        }
+
+        // Validate file size (max 2MB)
+        if ($image["size"] > 2 * 1024 * 1024) {
+            $errors[] = "File size must be less than 2MB.";
+        }
+
+        // Save file if no errors
+        if (empty($errors)) {
+            $fileName = uniqid() . "_" . basename($image["name"]);
+            $uploadPath = $uploadDir . $fileName;
+
+            if (move_uploaded_file($image["tmp_name"], $uploadPath)) {
+                $imagePath = $uploadPath;
+            } else {
+                $errors[] = "Failed to upload image.";
+            }
+        }
+    } else {
+        $errors[] = "Profile image is required.";
+    }
 
    // Validation rules
    if (empty($name)) {
     $errors[] = "Name is required.";
+    
 } elseif (!preg_match("/^[a-zA-Z ]+$/", $name)) {
     $errors[] = "Name can only contain letters and spaces.";
 }
@@ -160,17 +191,18 @@ if (empty($longitude)) {
 
 // If no errors, proceed to database insertion
 if (empty($errors)) {
-    // Use prepared statements to prevent SQL injection
-    $stmt = $conn->prepare("INSERT INTO `user` (...) VALUES (...)");
-    // Bind parameters and execute
-    // $stmt->bind_param(...);
-    // $stmt->execute();
-    // Handle success
+
+    Database::iud("INSERT INTO user (`name`,`age`,`tel-mobile`,`tel-home`,`village`,`village_of_domain`,`devisional_secretarial`,`cbo_name`,`cbo_started_date`,`cbo_members`,`saving_amount`,`land_size`,`land_cultivated`,`to_be_cultivated`,`empty_land`,`state_of_land`,`water_source_id`,`saving_id`,`land_owner_id`,`city_id`,`land_type_id`,`address`,`profile_path`) 
+    VALUES ('".$name."','".$age."','".$mobile."','".$stable_phone."','".$village."','".$officer_domain."','".$secretariat."','".$cbo_name."','".$cbo_start_date."','".$cbo_members."','".$saving_amount."','".$land_size."','".$cultivated_size."','".$plantable_size."','".$empty_land."','".$land_ownership."','".$water_source."','".$saving."','".$land_ownership."','".$city."','".$land_type."','".$address_line1."','".$uploadPath."')");
+        
     echo "Data saved successfully!";
+
+
 } else {
     // Output errors
     foreach ($errors as $error) {
         echo "<p>Error: $error</p>";
+      
     }
 }
 
