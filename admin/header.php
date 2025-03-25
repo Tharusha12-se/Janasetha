@@ -72,12 +72,9 @@
               <a href="index.php" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
             </li>
             <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i
-                  data-feather="briefcase"></i><span>Widgets</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="widget-chart.php">Chart Widgets</a></li>
-                <li><a class="nav-link" href="widget-data.php">Data Widgets</a></li>
-              </ul>
+              <a href="user-management.php" class="nav-link"><i
+                  data-feather="briefcase"></i><span>User Managenet</span></a>
+      
             </li>
            
             <li class="menu-header">Media</li>
