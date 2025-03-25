@@ -192,8 +192,16 @@ if (empty($longitude)) {
 // If no errors, proceed to database insertion
 if (empty($errors)) {
 
-    Database::iud("INSERT INTO user (`name`,`age`,`tel-mobile`,`tel-home`,`village`,`village_of_domain`,`devisional_secretarial`,`cbo_name`,`cbo_started_date`,`cbo_members`,`saving_amount`,`land_size`,`land_cultivated`,`to_be_cultivated`,`empty_land`,`state_of_land`,`water_source_id`,`saving_id`,`land_owner_id`,`city_id`,`land_type_id`,`address`,`profile_path`) 
-    VALUES ('".$name."','".$age."','".$mobile."','".$stable_phone."','".$village."','".$officer_domain."','".$secretariat."','".$cbo_name."','".$cbo_start_date."','".$cbo_members."','".$saving_amount."','".$land_size."','".$cultivated_size."','".$plantable_size."','".$empty_land."','".$land_ownership."','".$water_source."','".$saving."','".$land_ownership."','".$city."','".$land_type."','".$address_line1."','".$uploadPath."')");
+    Database::iud("INSERT INTO user (`name`,`age`,`tel-mobile`,`tel-home`,`village`,`village_of_domain`,
+    `devisional_secretarial`,`cbo_name`,`cbo_started_date`,`cbo_members`,`saving_amount`,`land_size`,
+    `land_cultivated`,`to_be_cultivated`,`empty_land`,`state_of_land`,`water_source_id`,`saving_id`,
+    `land_owner_id`,`city_id`,`land_type_id`,`address`,`profile_path`) 
+    
+    VALUES ('".$name."','".$age."','".$mobile."','".$stable_phone."','".$village."','".$officer_domain."',
+    '".$secretariat."','".$cbo_name."','".$cbo_start_date."','".$cbo_members."','".$saving_amount."',
+    '".$land_size."','".$cultivated_size."','".$plantable_size."','".$empty_land."','".$land_ownership."',
+    '".$water_source."','".$saving."','".$land_ownership."','".$city."','".$land_type."','".$address_line1."',
+    '".$uploadPath."')");
         
     echo "Data saved successfully!";
 
