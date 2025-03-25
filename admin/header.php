@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="assets/css/components.css">
   <!-- Custom style CSS -->
   <link rel="stylesheet" href="assets/css/custom.css">
+
+
   <link rel='shortcut icon' type='image/x-icon' href='assets\img\logo.png' />
 </head>
 
