@@ -38,6 +38,11 @@
                               style="display: none;object-fit: cover;"
                               accept="image/*"
                               onchange="previewImage(event)">
+
+                              <!-- Hidden manual location fields (fallback) -->
+<input type="hidden" id="manualLatitude" name="manual_latitude">
+<input type="hidden" id="manualLongitude" name="manual_longitude">
+
                            <!-- Clickable image -->
                            <img
                               id="imagePreview"

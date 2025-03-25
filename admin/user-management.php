@@ -43,11 +43,11 @@ include "header.php";
                           </div>
                         </th>
                         <th>User Name</th>
-                        <th>Members</th>
-                        <th>Task Status</th>
-                        <th>Assigh Date</th>
-                        <th>Due Date</th>
-                        <th>Priority</th>
+                        <th>City</th>
+                        <th>Age</th>
+                        <th>Mobile</th>
+                        <th>Registered Date</th>
+                       
                         <th>Action</th>
                       </tr>
                       <tr>
@@ -81,9 +81,7 @@ include "header.php";
                         </td>
                         <td>2018-01-20</td>
                         <td>2019-05-28</td>
-                        <td>
-                          <div class="badge badge-success">Low</div>
-                        </td>
+                       
                         <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
                       </tr>
                      

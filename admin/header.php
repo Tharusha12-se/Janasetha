@@ -76,24 +76,23 @@
                   data-feather="briefcase"></i><span>User Managenet</span></a>
       
             </li>
-           
-            <li class="menu-header">Media</li>
+
             <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="image"></i><span>Gallery</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="light-gallery.php">Gallery</a></li>
-              </ul>
+              <a href="gmaps-marker.php" class="nav-link"><i
+                  data-feather="briefcase"></i><span>Map</span></a>
+      
             </li>
-            
-            <li class="menu-header">Maps</li>
+
             <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="map"></i><span>Google
-                  Maps</span></a>
-              <ul class="dropdown-menu">
-            
-                <li><a href="gmaps-marker.php">Marker</a></li>
-            
-              </ul>
+              <a href="profile.php" class="nav-link"><i
+                  data-feather="briefcase"></i><span>Profile</span></a>
+      
+            </li>
+          
+            <li class="dropdown">
+              <a href="user-details.php" class="nav-link"><i
+                  data-feather="briefcase"></i><span>User Details</span></a>
+      
             </li>
             
             <li class="menu-header">Pages</li>
@@ -108,13 +107,7 @@
               </ul>
             </li>
             
-            <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="anchor"></i><span>Other
-                  Pages</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="profile.php">Profile</a></li>
-              </ul>
-            </li>
+
             
           </ul>
         </aside>

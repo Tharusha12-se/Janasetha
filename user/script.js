@@ -289,137 +289,212 @@ function loadallmembers() {
 }
 
 function registerUser() {
+  // Show loading indicator
+  Swal.fire({
+    title: 'Getting Location',
+    html: 'Please wait while we get your location...',
+    allowOutsideClick: false,
+    didOpen: () => {
+      Swal.showLoading();
+    }
+  });
+
+  // First try to get precise location
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
-      function (position) {
-        var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
-
-        var form = new FormData();
-
-        // Collect form data
-        form.append("name", document.getElementById("name").value);
-        form.append("age", document.getElementById("age").value);
-        form.append("address_line1", document.getElementById("address_line1").value);
-        form.append("city", document.getElementById("city").value);
-        form.append("mobile", document.getElementById("mobile").value);
-        form.append("stable_phone", document.getElementById("stable_phone").value);
-        form.append("income", document.getElementById("income").value);
-        form.append("village", document.getElementById("village").value);
-        form.append("officer_domain", document.getElementById("officer_domain").value);
-        form.append("secretariat", document.getElementById("secretariat").value);
-        form.append("joining_date", document.getElementById("joining_date").value);
-        form.append("cbo_name", document.getElementById("cbo_name").value);
-        form.append("cbo_start_date", document.getElementById("cbo_start_date").value);
-        form.append("cbo_members", document.getElementById("cbo_members").value);
-
-        // Saving & Land Ownership Radio Buttons
-        var saving1 = document.getElementById("dosaving1");
-        var saving2 = document.getElementById("dosaving2");
-        form.append("saving", saving1.checked ? saving1.value : saving2.checked ? saving2.value : "");
-
-         form.append("saving_amount", document.getElementById("saving_amount").value);
-
-        var land_ownership1 = document.getElementById("ownership1");
-        var land_ownership2 = document.getElementById("ownership2");
-        form.append("land_ownership", land_ownership1.checked ? land_ownership1.value :
-           land_ownership2.checked ? land_ownership2.value : "");
-
-        form.append("land_size", document.getElementById("land_size").value);
-        form.append("cultivated_size", document.getElementById("cultivated_size").value);
-        form.append("plantable_size", document.getElementById("plantable_size").value);
-        form.append("empty_land", document.getElementById("empty_land").value);
-        form.append("cultivation_details", document.getElementById("cultivation_details").value);
-
-        var water_source1 = document.getElementById("watersource1");
-        var water_source2 = document.getElementById("watersource2");
-        var water_source3 = document.getElementById("watersource3");
-        var water_source4 = document.getElementById("watersource4");
-        var water_source5 = document.getElementById("watersource5");
-        var water_source6 = document.getElementById("watersource6");
-        form.append("water_source", 
-          water_source1.checked ? water_source1.value :
-          water_source2.checked ? water_source2.value :
-          water_source3.checked ? water_source3.value :
-          water_source4.checked ? water_source4.value :
-          water_source5.checked ? water_source5.value :
-          water_source6.checked ? water_source6.value : "");
-
-          var land_type1 = document.getElementById("type1");
-          var land_type2 = document.getElementById("type2");
-          var land_type3 = document.getElementById("type3");
-          var land_type4 = document.getElementById("type4");
-          var land_type5 = document.getElementById("type5");
-          form.append("land_type", 
-            land_type1.checked ? land_type1.value :
-            land_type2.checked ? land_type2.value :
-            land_type3.checked ? land_type3.value :
-            land_type4.checked ? land_type4.value :
-            land_type5.checked ? land_type5.value : "");  
-
-        // Function to get the numeric value from selected radio buttons
-
-
-        // Create a FormData object
-      
-
-       // Function to get the numeric value from selected radio buttons
-
-        // Image Upload
-        var imageChooser = document.getElementById("imageChooser");
-        if (imageChooser.files.length > 0) {
-          form.append("profile_image", imageChooser.files[0]);
-        }
-
-        // Append User Location
-        form.append("latitude", latitude);
-        form.append("longitude", longitude);
-
-        var request = new XMLHttpRequest();
-        request.onreadystatechange = function () {
-          if (request.readyState == 4 && request.status == 200) {
-            var response = request.responseText.trim();
-
-            if (response === "success") {
-              Swal.fire({
-                title: "Success!",
-                text: "Registration successful.",
-                icon: "success",
-                confirmButtonText: "OK",
-              }).then(() => {
-                window.location = "index.php";
-              });
-            } else {
-              Swal.fire({
-                title: "Error",
-                text: response,
-                icon: "error",
-                confirmButtonColor: "#d33",
-              });
-              
-            }
-          }
-        };
-
-        request.open("POST", "registerProcess.php", true);
-        request.send(form);
+      function(position) {
+        // Success - got precise location
+        Swal.close();
+        submitFormWithLocation(
+          position.coords.latitude, 
+          position.coords.longitude,
+          'auto'
+        );
       },
-      function (error) {
+      function(error) {
+        // Failed to get precise location - show manual option
+        showManualLocationOption(error);
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0
+      }
+    );
+  } else {
+    // Geolocation not supported - show manual option
+    showManualLocationOption({code: 0});
+  }
+}
+
+function showManualLocationOption(error) {
+  let message = "We couldn't automatically get your location. ";
+  
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      message += "You denied location access. ";
+      break;
+    case error.POSITION_UNAVAILABLE:
+      message += "Location information is unavailable. ";
+      break;
+    case error.TIMEOUT:
+      message += "The request to get location timed out. ";
+      break;
+    default:
+      message += "Your browser doesn't support location services. ";
+  }
+  
+  message += "Please enter your location manually below:";
+  
+  Swal.fire({
+    title: 'Enter Location',
+    html: `
+      <p>${message}</p>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="manualLatitude">Latitude:</label>
+          <input type="text" id="manualLatitude" class="swal2-input" placeholder="e.g. 6.9271">
+        </div>
+        <div class="col-md-6">
+          <label for="manualLongitude">Longitude:</label>
+          <input type="text" id="manualLongitude" class="swal2-input" placeholder="e.g. 79.8612">
+        </div>
+      </div>
+      <p class="text-muted mt-2">You can find coordinates using Google Maps</p>
+    `,
+    focusConfirm: false,
+    showCancelButton: true,
+    confirmButtonText: 'Submit',
+    cancelButtonText: 'Skip Location',
+    preConfirm: () => {
+      const lat = Swal.getPopup().querySelector('#manualLatitude').value;
+      const lng = Swal.getPopup().querySelector('#manualLongitude').value;
+      
+      if (lat && lng) {
+        if (!isValidLatitude(lat) || !isValidLongitude(lng)) {
+          Swal.showValidationMessage('Please enter valid coordinates');
+          return false;
+        }
+        return { lat: parseFloat(lat), lng: parseFloat(lng) };
+      }
+      return { lat: null, lng: null };
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // User entered manual coordinates
+      submitFormWithLocation(
+        result.value.lat, 
+        result.value.lng,
+        'manual'
+      );
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      // User chose to skip location
+      submitFormWithLocation(null, null, 'skipped');
+    }
+  });
+}
+
+function isValidLatitude(lat) {
+  return !isNaN(lat) && lat >= -90 && lat <= 90;
+}
+
+function isValidLongitude(lng) {
+  return !isNaN(lng) && lng >= -180 && lng <= 180;
+}
+
+function submitFormWithLocation(latitude, longitude, source) {
+  // Show submission progress
+  Swal.fire({
+    title: 'Processing Registration',
+    html: 'Please wait while we submit your information...',
+    allowOutsideClick: false,
+    didOpen: () => {
+      Swal.showLoading();
+    }
+  });
+
+  var form = new FormData();
+
+  // Collect all form data
+  form.append("name", document.getElementById("name").value);
+  form.append("age", document.getElementById("age").value);
+  form.append("address_line1", document.getElementById("address_line1").value);
+  form.append("city", document.getElementById("city").value);
+  form.append("mobile", document.getElementById("mobile").value);
+  form.append("stable_phone", document.getElementById("stable_phone").value);
+  form.append("income", document.getElementById("income").value);
+  form.append("village", document.getElementById("village").value);
+  form.append("officer_domain", document.getElementById("officer_domain").value);
+  form.append("secretariat", document.getElementById("secretariat").value);
+  form.append("joining_date", document.getElementById("joining_date").value);
+  form.append("cbo_name", document.getElementById("cbo_name").value);
+  form.append("cbo_start_date", document.getElementById("cbo_start_date").value);
+  form.append("cbo_members", document.getElementById("cbo_members").value);
+
+  // Handle radio buttons
+  form.append("saving", document.querySelector('input[name="saving"]:checked')?.value || '');
+  form.append("saving_amount", document.getElementById("saving_amount").value);
+  form.append("land_ownership", document.querySelector('input[name="land_ownership"]:checked')?.value || '');
+  
+  // Other fields
+  form.append("land_size", document.getElementById("land_size").value);
+  form.append("cultivated_size", document.getElementById("cultivated_size").value);
+  form.append("plantable_size", document.getElementById("plantable_size").value);
+  form.append("empty_land", document.getElementById("empty_land").value);
+  form.append("cultivation_details", document.getElementById("cultivation_details").value);
+  form.append("water_source", document.querySelector('input[name="water_source"]:checked')?.value || '');
+  form.append("land_type", document.querySelector('input[name="land_type"]:checked')?.value || '');
+
+  // Image upload
+  var imageChooser = document.getElementById("imageChooser");
+  if (imageChooser.files.length > 0) {
+    form.append("profile_image", imageChooser.files[0]);
+  }
+
+  // Add location data
+  if (latitude !== null && longitude !== null) {
+    form.append("latitude", latitude);
+    form.append("longitude", longitude);
+  } else if (source === 'manual') {
+    // If we're here, manual location was attempted but invalid
+    form.append("manual_latitude", document.getElementById("manualLatitude")?.value || '');
+    form.append("manual_longitude", document.getElementById("manualLongitude")?.value || '');
+  }
+
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function() {
+    if (request.readyState == 4) {
+      if (request.status == 200) {
+        var response = request.responseText.trim();
+        
+        if (response === "success") {
+          Swal.fire({
+            title: "Success!",
+            text: "Registration successful.",
+            icon: "success",
+            confirmButtonText: "OK",
+          }).then(() => {
+            window.location = "index.php";
+          });
+        } else {
+          Swal.fire({
+            title: "Validation Error",
+            html: response,
+            icon: "error",
+            confirmButtonColor: "#d33",
+          });
+        }
+      } else {
         Swal.fire({
-          title: "Location Access Denied",
-          text: "Please allow location access to register.",
+          title: "Server Error",
+          text: "An error occurred while processing your request.",
           icon: "error",
           confirmButtonColor: "#d33",
         });
       }
-    );
-  } else {
-    Swal.fire({
-      title: "Geolocation Not Supported",
-      text: "Your browser does not support location tracking.",
-      icon: "error",
-      confirmButtonColor: "#d33",
-    });
-  }
-}
+    }
+  };
 
+  request.open("POST", "registerProcess.php", true);
+  request.send(form);
+}
